@@ -4,12 +4,11 @@ const scoreField = document.querySelector(".score");
 const allBoxes = document.querySelectorAll(".bracket");
 const success = "<span class='success'>+</span>";
 const fail = "<span class='fail'>X</span>";
-const difficulty = [[500,1000,20001],[1000,2000,30001],[2000,3000,40001]];
+const difficulty = [[500, 1000, 20001], [1000, 2000, 30001], [2000, 3000, 40001]];
 // rezerwacja zmiennej na interwal
 let mainLoop = "";
 // rezerwacja zmiennej na poziom trudnosci
 let selectedDif = 0;
-
 
 for (let i = 0; i < allBoxes.length; i++) {
     allBoxes[i].addEventListener("click", function () {
@@ -19,7 +18,7 @@ for (let i = 0; i < allBoxes.length; i++) {
         }
     });
 }
- 
+
 function randomBox() {
     return Math.floor(Math.random() * 25) + 1;
 }
