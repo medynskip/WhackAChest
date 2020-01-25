@@ -1,13 +1,44 @@
-.bracket-frame {
-    display: grid;
-    grid-template-columns: repeat(5, 60px);
+@keyframes jump-out {
+    100% {
+        background-position: -688px;
+    }
 }
 
-.bracket {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    background-color: rgb(163, 163, 163);
+@keyframes tease {
+    100% {
+        background-position: -240px;
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #25131A;
+    // align-items: center;
+
+}
+
+.container {}
+
+.bracket-frame {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    margin: 0 auto;
+    background: url(../images/tileset-01-01.jpg) top left / cover no-repeat;
+    padding: 50px;
+
+    .bracket {
+        width: 80px;
+        height: 80px;
+        margin: 1px;
+        background: url('../images/wake-up.png') left center;
+
+        &.active {
+            // background-color: red;
+            animation: jump-out 1s steps(9) forwards;
+
+        }
+    }
 }
 
 .score {
@@ -16,22 +47,20 @@
     grid-template-columns: repeat(10, 25px);
 }
 
-.active {
-    background-color: red;
-}
+
 
 span {
     padding: 5px;
     color: white;
     font-weight: bold;
     margin: 2px;
-}
 
-.success {
-    background-color: green;
-}
+    &.success {
+        background-color: green;
+    }
 
-.fail {
-    background-color: red;
+    &.fail {
+        background-color: red;
 
+    }
 }
