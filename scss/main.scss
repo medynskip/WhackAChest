@@ -44,6 +44,10 @@ body {
     background: url(../images/background.png) top left / cover no-repeat;
     padding: 50px;
 
+    &.pointer-down {
+        cursor: url('../images/pointer2.png'), auto;
+    }
+
     .bracket {
         width: 70px;
         height: 70px;
@@ -57,13 +61,13 @@ body {
 
         &.active {
             // background-color: red;
-            animation: jump-out 1s steps(6) forwards;
+            animation: jump-out 1000ms steps(6) forwards;
 
         }
 
         &.teasing {
-            background: url('../images/teasing.png') left center;
-            animation: tease 0.5s steps(2) infinite;
+            // background: url('../images/teasing.png') left center;
+            animation: tease 334ms steps(2) infinite;
         }
 
 
