@@ -1,19 +1,22 @@
 const startBtn = document.querySelector("#startBtn");
 const stopBtn = document.querySelector("#stopBtn");
-const scoreField = document.querySelector(".score");
+const scoreField = document.querySelector("#score");
 const allBoxes = document.querySelectorAll(".bracket");
-const success = "<span class='success'>+</span>";
-const fail = "<span class='fail'>X</span>";
-const difficulty = [[500, 1000, 20001], [1000, 2000, 30001], [2000, 3000, 40001]];
+const difficulty = [
+    [1800, 2200, 44001],
+    [1000, 1200, 24001]
+];
 // rezerwacja zmiennej na interwal
 let mainLoop = "";
 // rezerwacja zmiennej na poziom trudnosci
 let selectedDif = 0;
+let score = 0;
 
 for (let i = 0; i < allBoxes.length; i++) {
     allBoxes[i].addEventListener("click", function () {
         if (this.classList.contains("active")) {
-            scoreField.innerHTML += success;
+            score += 1;
+            scoreField.innerText = score;
             this.classList.remove("active");
         }
     });
@@ -28,7 +31,6 @@ function mainFunction() {
     activeBox.classList.add("active");
     let delay = setTimeout(function () {
         if (activeBox.classList.contains("active")) {
-            scoreField.innerHTML += fail;
             activeBox.classList.remove("active");
         }
     }, difficulty[selectedDif][0]);
@@ -36,12 +38,14 @@ function mainFunction() {
 
 startBtn.addEventListener("click", function () {
     startBtn.disabled = true;
-    scoreField.innerHTML = "";
+    score = 0;
+    scoreField.innerText = score;
     selectedDif = document.querySelector("#difficulty").value;
     mainLoop = setInterval(mainFunction, difficulty[selectedDif][1]);
     setTimeout(function () {
         clearInterval(mainLoop);
         startBtn.disabled = false;
+        alert('Złapałeś ' + score + ' skrzyń, z 20 możliwych!')
     }, difficulty[selectedDif][2])
 });
 

@@ -9,17 +9,21 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <button id="startBtn">Start gry</button>
-        <button id="stopBtn">Stop</button>
-        <select id="difficulty">
-            <option value="0">Hard</option>
-            <option value="1">Medium</option>
-            <option value="2">Easy</option>
-        </select>
+        <div class="controls">
+            <select id="difficulty">
+                <option value="0">Normal</option>
+                <option value="1">Hard</option>
+            </select>
+            <button id="startBtn">Start</button>
+            <button id="stopBtn">Stop</button>
+            <div class="score">Score: <span id="score">0</span>pts</div>
+
+        </div>
         <div class="bracket-frame">
             <div class="bracket"></div>
             <div class="bracket"></div>
