@@ -10,6 +10,27 @@
     }
 }
 
+@keyframes coin {
+    100% {
+        background-position: -140px;
+    }
+}
+
+@keyframes up {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        top: -100px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -53,23 +74,30 @@ body {
         height: 70px;
         margin: 1px;
         background: url('../images/wake-up.png') left center;
-
-        // &:hover {
-        //     background: url('../images/teasing.png') left center;
-        //     animation: tease 0.5s steps(2) infinite;
-        // }
+        position: relative;
 
         &.active {
-            // background-color: red;
+
             animation: jump-out 1000ms steps(6) forwards;
 
         }
 
         &.teasing {
-            // background: url('../images/teasing.png') left center;
-            animation: tease 334ms steps(2) infinite;
+
+            animation: tease 334ms steps(2) backwards;
         }
 
-
+        &.coin:before {
+            content: '';
+            width: 28px;
+            height: 25px;
+            position: absolute;
+            top: 38%;
+            left: 32%;
+            background: url('../images/coin.png') left center;
+            opacity: 1;
+            animation: tease 400ms steps(5) infinite, up 500ms;
+            z-index: 2;
+        }
     }
 }

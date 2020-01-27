@@ -16,11 +16,16 @@ let score = 0;
 for (let i = 0; i < allBoxes.length; i++) {
     allBoxes[i].addEventListener("click", function () {
         if (this.classList.contains("active")) {
+            this.classList.add("coin");
+            setTimeout(function () {
+                allBoxes[i].classList.remove("coin");
+            }, 500);
             score += 1;
             scoreField.innerText = score;
             this.classList.remove("active");
         }
     });
+
     allBoxes[i].addEventListener("mouseover", function () {
         if (!this.classList.contains("active")) {
             this.classList.add("teasing");
@@ -98,3 +103,19 @@ stopBtn.addEventListener("click", function () {
     clearTimeout(endGame);
     startBtn.disabled = false;
 });
+
+
+var inactivity = setInterval(function () {
+    if (!startBtn.disabled) {
+        for (let i = 0; i < allBoxes.length; i++) {
+
+            setTimeout(function () {
+                allBoxes[i].classList.add("teasing");
+            }, 80 * i)
+            setTimeout(function () {
+                allBoxes[i].classList.remove("teasing");
+            }, (80 * i) + 1000)
+        }
+
+    }
+}, 2300);
