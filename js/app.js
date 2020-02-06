@@ -40,12 +40,12 @@ for (let i = 0; i < allBoxes.length; i++) {
 
 
 
-function randomBox(min, max) {
+function randNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function mainFunction() {
-    const activeBox = document.querySelector(".bracket:nth-of-type(" + randomBox(1, 25) + ")");
+    const activeBox = document.querySelector(".bracket:nth-of-type(" + randNum(1, 25) + ")");
     activeBox.classList.add("active");
     let delay = setTimeout(function () {
         if (activeBox.classList.contains("active")) {
@@ -53,37 +53,6 @@ function mainFunction() {
         }
     }, difficulty[selectedDif][0]);
 }
-
-// function mainFunction() {
-//     let timeout = 200;
-//     let mimick = randomBox(2, 5)
-//     for (let i = 0; i < 5; i++) {
-//         setTimeout(function () {
-//             if (mimick == i) {
-//                 const activeBox = document.querySelector(".bracket:nth-of-type(" + randomBox(1, 25) + ")");
-//                 activeBox.classList.add("active");
-//                 setTimeout(function () {
-//                     activeBox.classList.remove("active");
-//                 }, difficulty[selectedDif][0]);
-//             } else {
-//                 let teaser = document.querySelector(".bracket:nth-of-type(" + randomBox(1, 25) + ")");
-//                 if (!teaser.classList.contains("active")) {
-//                     teaser.classList.add("teasing");
-//                     setTimeout(function () {
-//                         teaser.classList.remove("teasing");
-//                     }, difficulty[selectedDif][0]);
-//                 }
-//             }
-//         }, timeout * i);
-//     }
-
-
-// let delay = setTimeout(function () {
-//     if (activeBox.classList.contains("active")) {
-//         activeBox.classList.remove("active");
-//     }
-// }, difficulty[selectedDif][0]);
-// }
 
 startBtn.addEventListener("click", function () {
     startBtn.disabled = true;
@@ -107,15 +76,20 @@ stopBtn.addEventListener("click", function () {
 
 var inactivity = setInterval(function () {
     if (!startBtn.disabled) {
-        for (let i = 0; i < allBoxes.length; i++) {
+        // for (let i = 0; i < allBoxes.length; i++) {
 
-            setTimeout(function () {
-                allBoxes[i].classList.add("teasing");
-            }, 80 * i)
-            setTimeout(function () {
-                allBoxes[i].classList.remove("teasing");
-            }, (80 * i) + 1000)
-        }
+        //     setTimeout(function () {
+        //         allBoxes[i].classList.add("teasing");
+        //     }, 80 * i)
+        //     setTimeout(function () {
+        //         allBoxes[i].classList.remove("teasing");
+        //     }, (80 * i) + 1000)
+        // }
 
+        let x = randNum(1, 25);
+        allBoxes[x].classList.add("teasing");
+        setTimeout(function () {
+            allBoxes[x].classList.remove("teasing");
+        }, 1000)
     }
-}, 2300);
+}, 700);

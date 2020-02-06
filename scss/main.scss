@@ -6,7 +6,7 @@
 
 @keyframes tease {
     100% {
-        background-position: -140px;
+        background-position: -210px;
     }
 }
 
@@ -84,7 +84,7 @@ body {
 
         &.teasing {
 
-            animation: tease 334ms steps(2) backwards;
+            animation: tease 800ms steps(3) infinite;
         }
 
         &.coin:before {
@@ -96,7 +96,7 @@ body {
             left: 32%;
             background: url('../images/coin.png') left center;
             opacity: 1;
-            animation: tease 400ms steps(5) infinite, up 500ms;
+            animation: up 500ms;
             z-index: 2;
         }
     }
